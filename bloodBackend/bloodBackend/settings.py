@@ -105,10 +105,10 @@ WSGI_APPLICATION = 'bloodBackend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bloodDatabase',
-        'USER': 'bloodDatabase',
-        'PASSWORD': 'mydatabase',
-        'HOST': 'blooddatabase.cqxiacgkmh5p.us-east-1.rds.amazonaws.com',
+        'NAME': 'bloodBackendDB',
+        'USER': 'myBackendDB',
+        'PASSWORD': 'mybackenddb',
+        'HOST': 'bloodbackenddb.cqxiacgkmh5p.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
