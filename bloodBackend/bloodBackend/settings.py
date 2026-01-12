@@ -15,9 +15,6 @@ from datetime import timedelta
 from dotenv import load_dotenv
 import os
 
-
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,11 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--k-6fm(ia0tx88)zc5*weslfs(i@3h+&&+kt0v4ko!k7q&zgpe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["EC2_PUBLIC_IP", "98.89.0.59"]
-
-
+ALLOWED_HOSTS = []
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
@@ -63,6 +58,7 @@ INSTALLED_APPS = [
     'donoraccounts',
 
     'blood',
+    # 'whitenoise.runserver_nostatic',
     
 ]
 
@@ -103,15 +99,23 @@ WSGI_APPLICATION = 'bloodBackend.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bloodBackendDB',
-        'USER': 'myBackendDB',
-        'PASSWORD': 'mybackenddb',
-        'HOST': 'bloodbackenddb.cqxiacgkmh5p.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
-    }
+   'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+   }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'blood_donor_db',
+#         'USER': 'blood_user_donor',
+#         'PASSWORD': '1234567890',
+#         'HOST': 'localhost',
+#         'PORT': '5434',
+#     }
+# }
 
 
 
@@ -191,7 +195,6 @@ DEFAULT_FROM_EMAIL = "Blood Donor App <stigetech@gmail.com>"
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
