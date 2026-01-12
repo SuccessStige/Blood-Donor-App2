@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,7 +34,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 
-load_dotenv()
+# load_dotenv()
 
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
