@@ -29,15 +29,6 @@ export default function Navbar() {
               Request Blood
             </Link>
 
-            {/* ✅ Dashboard button */}
-            {role === "admin" && (
-              <Link
-                to="/admin"
-                className="bg-white text-red-600 px-3 py-1 rounded"
-              >
-                Dashboard
-              </Link>
-            )}
 
             <button
               onClick={logout}

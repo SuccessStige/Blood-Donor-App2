@@ -18,19 +18,36 @@ from django.urls import path, include
 from django.contrib import admin
 from django.conf import settings # new
 from  django.conf.urls.static import static #new
+from .views import frontend
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+# urlpatterns = [
+#     path("admin/", admin.site.urls),
 
+#     # JWT Auth
+#     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+#     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+
+#     # App APIs
+#     path("api/auth/", include("bloodaccounts.urls")),        # registration & login
+#     path("api/donors/", include("donoraccounts.urls")),      # donor related
+#     path("api/blood/", include("blood.urls")),               # blood request & stats
+
+#     # React frontend
+#     path("", frontend),
+# ]
 urlpatterns = [
     path("admin/", admin.site.urls), 
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    
     path("api/", include("bloodaccounts.urls")),
     path("api/", include("donoraccounts.urls")),
     path("api/blood/", include("donoraccounts.urls")),
     path("api/", include("blood.urls")),
+    path("", frontend),
 
 ]
 if settings.DEBUG:

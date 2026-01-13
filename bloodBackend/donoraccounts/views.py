@@ -12,10 +12,12 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from .models import BloodRequest
 from django.contrib.auth import get_user_model
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class DonorView(APIView):
     permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     def post(self, request):
         serializer = DonorSerializer(data=request.data)

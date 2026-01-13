@@ -28,11 +28,12 @@ SECRET_KEY = 'django-insecure--k-6fm(ia0tx88)zc5*weslfs(i@3h+&&+kt0v4ko!k7q&zgpe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "sucky-stige.online",
-    "www.sucky-stige.online",
-    "api.sucky-stige.online",
-]
+ALLOWED_HOSTS = ["127.0.0.1", 
+                 "localhost",
+                 "54.173.188.175"
+                 ]
+
+
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
@@ -49,7 +50,7 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'whitenoise.runserver_nostatic', #Make sure to add this 
+    # 'whitenoise.runserver_nostatic', #Make sure to add this 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -69,9 +70,10 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware', #make sure to add this line
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', #make sure to add this line
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -82,10 +84,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'bloodBackend.urls'
 
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,6 +148,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+# CSRF_TRUSTED_ORIGINS = [
+#     "http://54.173.188.175",
+# ]
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -156,21 +165,22 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/'
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, 'static')
-#]
+STATIC_URL = "/static/"
 
-#BASE_DIR=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URLS ='/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = [
+    BASE_DIR / "frontend_build/static",
+]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+TEMPLATES[0]["DIRS"] = [
+    BASE_DIR / "frontend_build",
+]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://sucky-stige.online",
-    "http://www.sucky-stige.online",
+CORS_ALLOW_ALL_ORIGINS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://54.173.188.175",
 ]
 
 REST_FRAMEWORK = {
