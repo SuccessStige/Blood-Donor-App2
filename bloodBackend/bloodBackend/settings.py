@@ -28,10 +28,7 @@ SECRET_KEY = 'django-insecure--k-6fm(ia0tx88)zc5*weslfs(i@3h+&&+kt0v4ko!k7q&zgpe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", 
-                 "localhost",
-                 "54.173.188.175"
-                 ]
+ALLOWED_HOSTS = []
 
 
 
@@ -50,7 +47,7 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    # 'whitenoise.runserver_nostatic', #Make sure to add this 
+    'whitenoise.runserver_nostatic', #Make sure to add this 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -64,7 +61,7 @@ INSTALLED_APPS = [
     'donoraccounts',
 
     'blood',
-    # 'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
     
 ]
 
@@ -73,7 +70,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    # 'whitenoise.middleware.WhiteNoiseMiddleware', #make sure to add this line
+    'whitenoise.middleware.WhiteNoiseMiddleware', #make sure to add this line
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
