@@ -61,7 +61,7 @@ INSTALLED_APPS = [
     'donoraccounts',
 
     'blood',
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
     
 ]
 
@@ -70,7 +70,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware', #make sure to add this line
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', #make sure to add this line
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
