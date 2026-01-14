@@ -86,7 +86,7 @@ ROOT_URLCONF = 'bloodBackend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -168,13 +168,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URLS ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = [
-    BASE_DIR / "frontend/static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "frontend/static",
+# ]
 
-TEMPLATES[0]["DIRS"] = [
-    BASE_DIR / "frontend",
-]
+# TEMPLATES[0]["DIRS"] = [
+#     BASE_DIR / "frontend",
+# ]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
