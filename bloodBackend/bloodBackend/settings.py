@@ -47,7 +47,7 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'whitenoise.runserver_nostatic', #Make sure to add this 
+    # 'whitenoise.runserver_nostatic', #Make sure to add this 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
