@@ -23,9 +23,9 @@ jobs:
       - name: Deploy React Frontend
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: ${{ secrets.SERVER_HOST }}
+          host: ${{ secrets.SSH_PRIVATE_KEY }}
           username: ubuntu
-          key: ${{ secrets.SERVER_SSH_KEY }}
+          key: ${{ secrets.SERVER_IP }}
           port: 22
           script: |
             cd ~/blood-donor-app
