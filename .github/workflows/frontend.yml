@@ -24,8 +24,7 @@ jobs:
       - name: Build React
         run: |
           cd blood-donor-app
-          CI=false
-          npm run build
+          CI=false  npm run build
 
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.6
