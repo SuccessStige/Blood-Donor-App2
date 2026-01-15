@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: |
-            cd ~/Blood-Donor-App2/bloodBackend
+            cd ~/bloodBackend
 
             git pull origin main
 

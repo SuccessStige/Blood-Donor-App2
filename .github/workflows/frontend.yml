@@ -18,12 +18,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd Blood-Donor-App2/blood-donor-app
+          cd blood-donor-app
           npm install
 
       - name: Build React
         run: |
-          cd Blood-Donor-App2/blood-donor-app
+          cd blood-donor-app
           npm run build
 
       - name: Deploy to server
@@ -35,5 +35,5 @@ jobs:
           port: 22
           script: |
             rm -rf /var/www/react_build/*
-            cp -r ~/Blood-Donor-App2/blood-donor-app/build/* /var/www/react_build/
+            cp -r ~blood-donor-app/build/* /var/www/react_build/
             systemctl restart caddy
