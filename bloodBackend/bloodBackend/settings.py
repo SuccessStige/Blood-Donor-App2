@@ -179,9 +179,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://54.173.188.175",
+    "https://sucky-stige.online",
 ]
 
 REST_FRAMEWORK = {
