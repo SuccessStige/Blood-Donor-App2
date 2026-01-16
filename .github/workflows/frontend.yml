@@ -31,4 +31,4 @@ jobs:
             cd ~/blood-donor-app
             git pull origin main
             npm install
-            sudo systemctl restart react-app
+            sudo systemctl restart react-app.service
